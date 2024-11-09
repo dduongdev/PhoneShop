@@ -1,0 +1,35 @@
+﻿@page "{id:Guid?}"
+@model PhoneShop.Pages.Products.DetailsModel
+
+@{
+	ViewData["Title"] = "Thông tin sản phẩm";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<dl class="row">
+	<dt class="col-sm-2">
+		@Html.DisplayNameFor(Model => Model.Product.Name)
+	</dt>
+	<dd class="col-sm-10">
+		@Html.DisplayFor(Model => Model.Product.Name)
+	</dd>
+
+	<dt class="col-sm-2">
+		@Html.DisplayNameFor(Model => Model.Product.Description)
+	</dt>
+	<dd class="col-sm-10">
+		@Html.DisplayFor(Model => Model.Product.Description)
+	</dd>
+
+	<dt class="col-sm-2">
+		@Html.DisplayNameFor(Model => Model.Product.Price)
+	</dt>
+	<dd class="col-sm-10">
+		@Html.DisplayFor(Model => Model.Product.Price)
+	</dd>
+</dl>
+
+<a asp-page="Index">
+	Trang sản phẩm
+</a>
