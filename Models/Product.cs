@@ -14,5 +14,6 @@ namespace PhoneShop.Models
 
         [DisplayName("Giá sản phẩm")]
         public decimal Price { get; set; }
+        public string ImagesUrl { get; set; } = string.Empty;
     }
 }

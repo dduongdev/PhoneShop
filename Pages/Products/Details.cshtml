@@ -7,6 +7,12 @@
 
 <h1>@ViewData["Title"]</h1>
 
+<div class="image-gallery">
+	@foreach (var image in Model.ProductImages)
+	{
+		<img alt="Image" src="@image" style="width: 140px; height: 50%; margin: 8px;" /> 
+	}
+</div>
 <dl class="row">
 	<dt class="col-sm-2">
 		@Html.DisplayNameFor(Model => Model.Product.Name)
