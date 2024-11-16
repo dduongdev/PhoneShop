@@ -33,10 +33,13 @@ namespace PhoneShop.Pages.Products
             }
             Product = product;
 
-			var imagesPath = Path.Combine(Constants.BaseImagePath, Constants.ProductImagePath, Product.ImagesUrl);
+            if (Product.ImagesUrl != null)
+            {
+			    var imagesPath = Path.Combine(Constants.BaseImagePath, Constants.ProductImagePath, Product.ImagesUrl);
 
-			ProductImages = Directory.GetFiles(Path.Combine(_environment.WebRootPath, imagesPath), "*.*")
-                                    .Select(file => Path.Combine("\\", imagesPath, Path.GetFileName(file))).ToList();
+			    ProductImages = Directory.GetFiles(Path.Combine(_environment.WebRootPath, imagesPath), "*.*")
+                                        .Select(file => Path.Combine("\\", imagesPath, Path.GetFileName(file))).ToList();
+            }
 
             return Page();
         }

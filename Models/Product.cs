@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace PhoneShop.Models
 {
@@ -6,14 +7,17 @@ namespace PhoneShop.Models
     {
         public Guid Id { get; set; } = Guid.NewGuid();
 
+        [Required(ErrorMessage = "Tên sản phẩm là bắt buộc.")]
         [DisplayName("Tên sản phẩm")]
-        public string Name { get; set; } = string.Empty;
+        public string Name { get; set; } = default!;
 
         [DisplayName("Mô tả sản phẩm")]
-        public string Description { get; set; } = string.Empty;
+        public string? Description { get; set; } 
 
-        [DisplayName("Giá sản phẩm")]
+		[Required(ErrorMessage = "Giá sản phẩm là bắt buộc.")]
+		[DisplayName("Giá sản phẩm")]
+        [Range(0.0, double.MaxValue, ErrorMessage = "Giá sản phẩm phải là một số dương.")]
         public decimal Price { get; set; }
-        public string ImagesUrl { get; set; } = string.Empty;
+        public string? ImagesUrl { get; set; }
     }
 }

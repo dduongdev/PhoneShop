@@ -44,7 +44,7 @@ namespace PhoneShop.Services
 
 		public async Task FetchData()
 		{
-			_products = (await _dataFetchStrategy.FetchDataAsync()).ToList();
+			_products.AddRange(await _dataFetchStrategy.FetchDataAsync());
 		}
 	}
 }
